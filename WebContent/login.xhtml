@@ -28,15 +28,22 @@
 
 <h:body>	
 	<div class="loginBox">
-		<h:form>            
+		<h:form>          
     		<h:panelGrid columns="2" cellpadding="3" cellspacing="3" >
         		<h:outputText value="Board Name"></h:outputText>
         		<h:inputText value="#{loginBean.name}"></h:inputText>
        			<h:outputText value="Password"></h:outputText>
     			<h:inputSecret value="#{loginBean.password}"></h:inputSecret>
    			</h:panelGrid>
-   			<h:commandButton value="Login" action="#{loginBean.login}"></h:commandButton>                   	
+   			<h:panelGroup>
+   				<h:commandButton value="Login" action="#{loginBean.login}"  onclick="document.getElementById('pb').style.display='block';document.getElementById('pb2').style.display='block'"></h:commandButton>   
+   			</h:panelGroup>        	
     	</h:form>
     </div>	
+    <div class="loading" id="pb">
+    	<div>
+    	    <img id="pb2" class="loadingIcon" src="http://i.imgur.com/cZAx19K.gif" alt="Loading" />  
+    	</div>
+    </div>
 </h:body>
 </html>

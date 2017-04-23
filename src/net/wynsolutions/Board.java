@@ -1,6 +1,10 @@
 package net.wynsolutions;
 
+import java.io.IOException;
+import java.net.Inet4Address;
 import java.util.HashMap;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -29,21 +33,17 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class Board {
 
-	public String name, code = "";
-	private HashMap<String, String> items = new HashMap<String, String>();
+	private String name, code = "";
+	private HashMap<String, String> items;
 	
 	public Board() {
 		
-		items.put("JDN", "");
-		items.put("H2", "");
-		items.put("H1", "");
-		items.put("H3", "");
-		items.put("JDN 02", "");
-		items.put("Black", "");
-		items.put("White", "");
-		items.put("Red", "");
-		items.put("Green", "");
+		items = new HashMap<String, String>();
 		
+		for(int i = 10; i < 33; i++){
+			items.put("192.168.68.1" + i, getImageValue("192.168.68.1" + i));
+		}
+	
 		populate();
 	}
 	
@@ -51,12 +51,13 @@ public class Board {
 		
 		System.out.println("Doing it.");
 		
-		/*
-		String str = "<table class=\"grid\">\n <thead> \n<tr><th class=\"subtitlebig\" colspan=\"7\" scope=\"colgroup\">"
-				+ "Activity Board</th></tr></thead><tbody>";
+		SortedSet<String> keys = new TreeSet<String>(items.keySet());
+		String str = "<table cellspacing=\"20\" cellpadding=\"50\" style=\";margin: 0 auto;\">\n " +
+				"<thead> \n<tr><th colspan=\"7\" scope=\"colgroup\" style=\"font-size: 60px;text-decoration: underline;\">" +
+				"Activity Board</th></tr></thead><tbody>";
 		
 		int col = 0, tot = 0;
-		for(String s : items.keySet()){
+		for(String s : keys){
 			
 			
 			if(col == 0){
@@ -64,7 +65,9 @@ public class Board {
 			}
 			
 			if(col < 7){
-				str += "<td class=\"node\">" + s + "<br/><img src=\"http://i.imgur.com/qFr34Y7.png\" alt=\"Sw4p\" width=\"70\" height=\"25\"/></td>\n";
+				str += "<td style=\"text-align: center;color: black;font-size: 24px;background-color: #eae672;width: 100px;height: 120px;box-shadow: 10px 20px 70px black;\">" +
+						s + "<br/>" + 
+						"<img src=\"" + items.get(s) +"\" alt=\"LED\" width=\"70\" height=\"70\"/></td>\n"; 
 				
 			}
 			
@@ -78,9 +81,9 @@ public class Board {
 			
 		}
 		
-		str += "</tbody>\n</table>\n";*/
+		str += "</tbody>\n</table>\n";
 		
-		String str = "<h:panelGrid columns=\"7\" cellspacing=\"20\" cellpadding=\"50\" headerClass=\"gridHeader\" styleClass=\"grid\">\n"
+		/*String str = "<h:panelGrid columns=\"7\" cellspacing=\"20\" cellpadding=\"50\" headerClass=\"gridHeader\" styleClass=\"grid\">\n"
 				+ "<f:facet name=\"header\">\n<h:outputLabel value=\"Activity Board\" style=\"font-size: 60px; text-decoration: underline;\" />\n</f:facet>\n";
 		
 		for(String s : items.keySet()){
@@ -91,11 +94,25 @@ public class Board {
 					"</h:panelGroup>\n";
 		}
 		
-		str += "</h:panelGrid>\n";
+		str += "</h:panelGrid>\n";*/
 		
 		code = str;
 	}
 
+	private String getImageValue(String ip){
+		
+		try {
+			if(Inet4Address.getByName(ip).isReachable(15)){
+				return "http://i.imgur.com/UfEdTQJ.png";
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return "http://i.imgur.com/AnEFlRE.png";
+	}
+	
 	/**
 	 * @return the name
 	 */

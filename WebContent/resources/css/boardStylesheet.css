@@ -14,7 +14,7 @@
 /*  */
 /* @author Sw4p */
 
-.grid {
+html, body{
 	background-color: black;
 	background: url("http://i.imgur.com/5BOWIGn.jpg"), no-repeat, center, center;
 	background-repeat: no-repeat;
@@ -23,9 +23,4 @@
     width: 100%;
     background-size: 100%;
     margin: 0 auto;
-}
-
-.node {
-	text-align: center;
-	color: white;
 }

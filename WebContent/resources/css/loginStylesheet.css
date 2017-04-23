@@ -39,3 +39,35 @@ html, body {
     padding: 20px;
     box-shadow: 10px 10px 20px black;
 }
+
+.loading {
+	background-color: rgba(0,0,0,0.2);
+	opacity: 0.8;
+	margin:0px;
+	position: fixed;
+	padding:0px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:100%;
+    height:100%;
+    display: none;
+}
+
+.loadingIcon {
+	opacity: 1.0;
+	margin:0px;
+	position: fixed;
+	padding:0px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#pb {
+    display: none;
+}
+
+#pb2 {
+    display: none;
+}
