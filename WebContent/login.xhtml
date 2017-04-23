@@ -1,0 +1,42 @@
+<!-- Copyright (C) 2017  Sw4p -->
+<!-- This program is free software: you can redistribute it and/or modify-->
+<!-- it under the terms of the GNU General Public License as published by-->
+<!--the Free Software Foundation, either version 3 of the License, or-->
+<!--(at your option) any later version.-->
+<!-- -->
+<!--This program is distributed in the hope that it will be useful,-->
+<!--but WITHOUT ANY WARRANTY; without even the implied warranty of-->
+<!--MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the-->
+<!--GNU General Public License for more details.-->
+<!-- -->
+<!--You should have received a copy of the GNU General Public License-->
+<!--along with this program.  If not, see <http://www.gnu.org/licenses/>.-->
+<!-- -->
+<!--@author Sw4p-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<h:outputStylesheet library="css" name="loginStylesheet.css"  />
+</h:head>
+
+<h:body>	
+	<div class="loginBox">
+		<h:form>            
+    		<h:panelGrid columns="2" cellpadding="3" cellspacing="3" >
+        		<h:outputText value="Board Name"></h:outputText>
+        		<h:inputText value="#{loginBean.name}"></h:inputText>
+       			<h:outputText value="Password"></h:outputText>
+    			<h:inputSecret value="#{loginBean.password}"></h:inputSecret>
+   			</h:panelGrid>
+   			<h:commandButton value="Login" action="#{loginBean.login}"></h:commandButton>                   	
+    	</h:form>
+    </div>	
+</h:body>
+</html>

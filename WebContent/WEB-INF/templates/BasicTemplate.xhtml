@@ -1,0 +1,54 @@
+<!-- Copyright (C) 2017  Sw4p -->
+<!-- This program is free software: you can redistribute it and/or modify-->
+<!-- it under the terms of the GNU General Public License as published by-->
+<!--the Free Software Foundation, either version 3 of the License, or-->
+<!--(at your option) any later version.-->
+<!-- -->
+<!--This program is distributed in the hope that it will be useful,-->
+<!--but WITHOUT ANY WARRANTY; without even the implied warranty of-->
+<!--MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the-->
+<!--GNU General Public License for more details.-->
+<!-- -->
+<!--You should have received a copy of the GNU General Public License-->
+<!--along with this program.  If not, see <http://www.gnu.org/licenses/>.-->
+<!-- -->
+<!--@author Sw4p-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<head>
+  <title><ui:insert name="title">WYN Activity Board</ui:insert></title>
+</head>
+
+<body>
+<ui:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
+
+<div id="header">
+    <ui:insert name="header">
+    	<!--  include your header file or uncomment the include below and create header.xhtml in this directory -->
+    	<ui:include src="header.xhtml"/> 
+    </ui:insert>
+</div>
+
+
+<div id="content">
+  <ui:insert name="content">
+    	<!--  include your content file or uncomment the include below and create content.xhtml in this directory -->
+	  	<!-- <div> -->
+    	<!-- <ui:include src="content.xhtml"/> -->  
+    	<!-- </div> -->
+  </ui:insert>
+</div>
+
+<div id="footer">
+  <ui:insert name="footer">
+    	<!--  include your header file or uncomment the include below and create footer.xhtml in this directory -->
+		<ui:include src="footer.xhtml"/> 
+  </ui:insert>
+</div>
+
+</body>
+
+</html>
